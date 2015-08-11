@@ -12,10 +12,10 @@ issues. Each [**syscall(2)**] [2] requires two context switch (from *tracee* to
 languages which invokes lots of *syscall*s. On the other hand, which is
 more important and severe, is the security issues on x86\_64 systems. 
 
-### Why ptrace is considered insecure?
+#### Why ptrace is considered insecure?
 
-  Modern x86\_64 CPUs are capable to run both x86 and amd64 code. And so
-does OSes. But [syscall numbers] [3] are different between x86 and amd64,
+  Modern x86\_64 CPUs are capable to run both x86 and amd64 code, so
+does on modern OSes. But [syscall numbers] [3] are different between x86 and amd64,
 and there is no way to distinguish between them in ptrace. For example, 
 syscall number 102 on amd64 in linux is [**getpid**] [4], which is usually 
 an allowed syscall, but on x86, this syscall number is actually
@@ -51,8 +51,9 @@ on low-end judge machines.
 
 ## Requirements
 
-  * linux kernel >= 3.5 (or Ubuntu 3.2 kernel) (filter-style seccomp jail is
-introduced in kernel 3.5, and ubuntu has backported this feature to its 3.2 kernel)
+  * linux kernel >= 3.5 (or Ubuntu 3.2 kernel)    
+(filter-style seccomp jail is introduced in kernel 3.5, and ubuntu has backported
+this feature to its 3.2 kernel)
   * libconfig >= 1.4
 
 [1]: http://man7.org/linux/man-pages/man2/ptrace.2.html
