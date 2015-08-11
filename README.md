@@ -3,7 +3,7 @@
   FastJudge is designed to be a fast, secure and extendable judge suite, 
 including judge client & sandbox, judge web interface and a judge daemon.
   
-## Design of fastjudge
+## Design of FastJudge
 
   Currently, most online judge client heavily relies on [**ptrace(2)**] [1]
 to secure the sandbox, but it suffers from both performance and security
