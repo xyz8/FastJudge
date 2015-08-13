@@ -1,4 +1,4 @@
-AM_CPPFLAGS = -I$(top_srcdir)/libev
+AM_CPPFLAGS = -I../libev
 
 bin_PROGRAMS = fastjudged
 fastjudged_SOURCES = main.c

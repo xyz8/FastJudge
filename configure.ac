@@ -5,6 +5,12 @@ AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_FILES([Makefile src/Makefile])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 
+AC_ARG_ENABLE([debug], AS_HELP_STRING([--enable-debug], [Enable debug output]))
+
+AS_IF([test "x$enable_debug" = "xyes"], [
+   CFLAGS+="-DDEBUG"
+])
+
 AC_CANONICAL_BUILD
 
 # echo $build_os
@@ -19,6 +25,7 @@ esac
 
 AC_PROG_CC
 AC_PROG_CC_STDC
+AC_PROG_CC_C99
 m4_include([libev/libev.m4])
 
 PKG_CHECK_MODULES([libconfig],[libconfig],,AC_MSG_ERROR([libconfig not found]))
